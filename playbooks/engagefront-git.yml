@@ -1,0 +1,10 @@
+- name: "Pull down relevant Git repos for Engagefront"
+  hosts: newengagefront1
+  become: yes
+  become_method: sudo
+
+  tasks:
+
+    - name:
+      apt:
+      with_items:
