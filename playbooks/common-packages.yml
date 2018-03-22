@@ -1,0 +1,24 @@
+- name: "Install common packages"
+  hosts: newengagefront1
+  become: yes
+  become_method: sudo
+
+  tasks:
+
+    - name: Get aptitude for upgrade
+      apt: pkg=aptitude state=present
+
+    - name: Safe system upgrade via aptitude
+      apt: upgrade=safe
+
+    - name: Get Node.js v8 setup script
+      shell: curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+
+    - name: Install Node.js  
+      shell: apt-get install -y nodejs
+
+    - name: install base packages
+      apt: pkg={{item}} state=present update_cache=yes cache_valid_time=604800
+      with_items:
+        - htop
+        - jq
