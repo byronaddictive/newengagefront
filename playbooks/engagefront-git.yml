@@ -1,17 +1,18 @@
 - name: "Pull down relevant Git repos for Engagefron, create some symlinks and stuff too"
-  hosts: newengagefront1
-  become: yes
-  become_method: sudo
+    hosts: newengagefront1
+    become: yes
+    become_method: sudo
 
-  tasks:
+    tasks:
 
-    # Clone rollout Console 
-    - git:
-        repo: ssh://git@github.com:amoa/rolloutconsole.git
-        dest: /opt
+      - name: Clone Rolloutconsole repo
+        git:
+          repo: ssh://git@github.com:amoa/rolloutconsole.git
+          dest: /tmp
+        
 
-    - name: Link to rollout console and create /var/sites
-      shell: ln -s /opt/rolloutconsole /var/sites/rollout 
-
-    - name: Copy rollout console config file
-    - shell: cp -f /opt/rolloutconsole/init/rollout.conf  /etc/init/rollout.conf
+      - name: Link to rollout console and create /var/sites
+        shell: ln -s /opt/rolloutconsole /var/sites/rollout 
+                     
+      - name: Copy rollout console config file
+      - shell: cp -f /opt/rolloutconsole/init/rollout.conf  /etc/init/rollout.conf
