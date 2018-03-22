@@ -92,13 +92,13 @@
         value: 1048576
 
     - pam_limits:
-        domain: *
+        domain: '*'
         limit_type: soft
         limit_item: nofile
         value: 1048576
 
     - pam_limits:
-        domain: *
+        domain: '*'
         limit_type: hard
         limit_item: nofile
         value: 1048576
