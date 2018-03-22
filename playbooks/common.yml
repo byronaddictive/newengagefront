@@ -23,6 +23,9 @@
         - htop
         - jq
 
+    - name: Modify /etc/pam.d/common-session and add a line (only if it doesn't exist)
+      shell: grep -q -F 'session required                        pam_limits.so' /etc/pam.d/common-session || echo 'session required                        pam_limits.so' >> /etc/pam.d/common-session
+
     # Set vm.zone_reclaim_mode = 0
     - sysctl:
         name: vm.zone_reclaim_mode
