@@ -1,3 +1,6 @@
+[cnc]
+192.168.80.31
+
 [newengagefront1]
 192.168.80.32
 [newengagefront1:vars]
