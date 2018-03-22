@@ -12,6 +12,15 @@
         accept_hostkey: yes
       delegate_to: "{{ groups['cnc'][0] }}"
       become_user: byron
+
+    - name: sync proj to destination
+      synchronize:
+        src: "/tmp/rolloutconsole"
+        dest: "/opt/rolloutconsole"
+        recursive: yes
+        rsync_opts:
+          - "--no-motd"
+          - "--exclude=.git"    
         
 
         #      - name: Link to rollout console and create /var/sites
