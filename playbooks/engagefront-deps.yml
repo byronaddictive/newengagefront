@@ -1,0 +1,12 @@
+- name: "Install Engagefront specific stuff"
+  hosts: newengagefront1
+  become: yes
+  become_method: sudo
+
+  tasks:
+
+    - name: install base packages
+      apt: pkg={{item}} state=present update_cache=yes cache_valid_time=604800
+      with_items:
+        -
+        - 
