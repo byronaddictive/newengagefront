@@ -26,9 +26,17 @@
         - php-dev 
         - redis-tools
         - mongodb-clients
+        - php-redis
+
+    - name: Install customized php ini file
+      synchronize:
+        src: "/home/byron/newengagefront/attachments/php.ini"
+        dest: "/etc/php/7.0/fpm/php.ini"
 
     - name: Install PHP Mongo driver
       shell: pecl install mongodb
 
     - name: Update to include mongo.so
       shell: echo "extension=mongodb.so" >/etc/php/7.0/fpm/php.ini && apache2ctl restart
+
+
