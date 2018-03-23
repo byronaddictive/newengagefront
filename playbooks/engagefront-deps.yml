@@ -43,14 +43,15 @@
       shell: apache2ctl stop
 
     - name: rm -rf /var/www
-      file: path=/var/www state=absent recurse=yes
+      file: path=/var/www state=absent
 
     - name: rm -rf /var/log/apache2
-      file: path=/var/log/apache2 state=absent recurse=yes
+      file: path=/var/log/apache2 state=absent
 
     - name: mkdir -p  /mnt/ephemeral/sites/default
       file: 
         path: /mnt/ephemeral/sites/default
+        state: directory
         owner: www-data
         group: www-data
         mode: 0755
@@ -58,6 +59,7 @@
     - name: mkdir -p /mnt/ephemeral/sites/default/html
       file:
         path: /mnt/ephemeral/sites/default/html
+        state: directory
         owner: www-data
         group: www-data
         mode: 0755
@@ -65,6 +67,7 @@
     - name: mkdir -p /mnt/ephemeral/log/apache2
       file: 
         path: /mnt/ephemeral/log/apache2
+        state: directory
         owner: www-data
         group: www-data
         mode: 0755
