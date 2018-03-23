@@ -39,4 +39,29 @@
     - name: Update php.ini to include mongo.so, and restart Apache
       shell: sed -i '$iextension=mongodb.so' /etc/php/7.0/fpm/php.ini && apache2ctl restart
 
+    - name: Stop apache
+      shell: apache2ctl stop
 
+    - name: 
+      file: 
+
+    - name:
+      file:
+
+    - name:
+      file:      
+
+    - name:
+      file:
+
+    - name: 
+      file: 
+
+    - name:
+      file:
+
+    - name:
+      file:      
+
+    - name:
+      file:
