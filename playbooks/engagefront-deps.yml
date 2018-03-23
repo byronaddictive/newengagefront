@@ -95,3 +95,33 @@
         owner: www-data
         group: www-data
         state: link
+
+
+
+
+
+     - name: mkdir -p /etc/apache2/conf.d
+       file:
+         path: /etc/apache2/conf.d
+         state: directory
+         mode: 0755
+
+     - name: Install customized apache
+       synchronize:
+         src: ""
+         dest: ""
+
+     - name: Install customized apache
+       synchronize:
+         src: ""
+         dest: ""
+
+     - name: Install customized apache
+       synchronize:
+         src: ""
+         dest: ""
+
+     - name: Install customized apache
+       synchronize:
+         src: ""
+         dest: ""       
