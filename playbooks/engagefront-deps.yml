@@ -43,10 +43,10 @@
       shell: apache2ctl stop
 
     - name: rm -rf /var/www
-      file: 
+      file: path=/var/www state=absent recurse=yes
 
     - name: rm -rf /var/log/apache2
-      file:
+      file: path=/var/log/apache2 state=absent recurse=yes
 
     - name: mkdir -p  /mnt/ephemeral/sites/default
       file: 
