@@ -26,3 +26,9 @@
         - php-dev 
         - redis-tools
         - mongodb-clients
+
+    - name: Install PHP Mongo driver
+      shell: pecl install mongodb
+
+    - name: Update to include mongo.so
+      shell: echo "extension=mongodb.so" >/etc/php/7.0/fpm/php.ini && apache2ctl restart
