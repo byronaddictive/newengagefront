@@ -24,7 +24,7 @@
 
     - name: Copy rollout console config file
       copy:
-        src: /opt/rolloutconsole/init/rollout.conf
+        src: /tmp/rolloutconsole/init/rollout.conf
         dest: /etc/init/rollout.conf
         owner: root
         group: root
