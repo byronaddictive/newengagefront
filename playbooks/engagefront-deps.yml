@@ -8,8 +8,21 @@
     - name: Adding repo for recent redis
       shell: add-apt-repository -y ppa:chris-lea/redis-server; apt-get update;
 
-    - name: install base packages
+    - name: Install Apache, PHP, GraphicsMagick, Redis and Mongo clients
       apt: pkg={{item}} state=present update_cache=yes cache_valid_time=604800
       with_items:
         - graphicsmagick
-        - redis-server 
+        - apache2
+        - php5
+        - php5-cli
+        - php-pear
+        - php5-gd
+        - libmcrypt-dev
+        - mcrypt
+        - dbconfig-common
+        - libmcrypt4
+        - php5-mcrypt
+        - php5-curl
+        - php5-dev 
+        - redis-tools
+        - mongodb-clients
