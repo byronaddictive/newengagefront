@@ -22,14 +22,6 @@
           - "--no-motd"
           - "--exclude=.git" 
 
-    - name: Link to rollout console and create /var/sites 
-      file:
-        src: /opt/rolloutconsole
-        dest: /var/sites/rollout
-        owner: root
-        group: root
-        state: link
-
     - name: Copy rollout console config file
       copy:
         src: /opt/rolloutconsole/init/rollout.conf
@@ -37,3 +29,11 @@
         owner: root
         group: root
         mode: 0644
+
+    - name: ln -s /opt/rolloutconsole /var/sites/rollout
+      file:
+        src: /opt/rolloutconsole 
+        dest: /var/sites/rollout
+        owner: www-data
+        group: www-data
+        state: link
