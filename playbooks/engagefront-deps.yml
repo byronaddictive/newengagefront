@@ -36,7 +36,7 @@
     - name: Install PHP Mongo driver
       shell: pecl install mongodb
 
-    - name: Update to include mongo.so
-      shell: echo "extension=mongodb.so" >/etc/php/7.0/fpm/php.ini && apache2ctl restart
+    - name: Update php.ini to include mongo.so, and restart Apache
+      shell: sed -i '$iextension=mongodb.so' /etc/php/7.0/fpm/php.ini && apache2ctl restart
 
 
