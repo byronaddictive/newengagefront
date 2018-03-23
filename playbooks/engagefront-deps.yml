@@ -42,26 +42,32 @@
     - name: Stop apache
       shell: apache2ctl stop
 
-    - name: 
+    - name: rm -rf /var/www
       file: 
 
-    - name:
+    - name: rm -rf /var/log/apache2
       file:
 
-    - name:
-      file:      
-
-    - name:
-      file:
-
-    - name: 
+    - name: mkdir -p  /mnt/ephemeral/sites/default
       file: 
+        path: /mnt/ephemeral/sites/default
 
-    - name:
+    - name: mkdir -p /mnt/ephemeral/sites/default/html
       file:
+        path: /mnt/ephemeral/sites/default/htm
 
-    - name:
-      file:      
+    - name: mkdir -p /mnt/ephemeral/log/apache2
+      file: 
+        path: /mnt/ephemeral/log/apache2
 
-    - name:
+    - name: ln -s /mnt/ephemeral/sites/default /var/www
       file:
+        state: link
+
+    - name: ln -s /mnt/ephemeral/sites /var/sites
+      file: 
+        state: link     
+
+    - name: ln -s /mnt/ephemeral/log/apache2 /var/log/apache2
+      file:
+        state: link
