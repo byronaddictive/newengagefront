@@ -13,16 +13,16 @@
       with_items:
         - graphicsmagick
         - apache2
-        - php5
-        - php5-cli
+        - php
+        - php-cli
         - php-pear
-        - php5-gd
+        - php-gd
         - libmcrypt-dev
         - mcrypt
         - dbconfig-common
         - libmcrypt4
-        - php5-mcrypt
-        - php5-curl
-        - php5-dev 
+        - php-mcrypt
+        - php-curl
+        - php-dev 
         - redis-tools
         - mongodb-clients
