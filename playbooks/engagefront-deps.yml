@@ -96,28 +96,28 @@
         group: www-data
         state: link
 
-     - name: mkdir -p /etc/apache2/conf.d
-       file:
-         path: /etc/apache2/conf.d
-         state: directory
-         mode: 0755
+    - name: mkdir -p /etc/apache2/conf.d
+      file:
+        path: /etc/apache2/conf.d
+        state: directory
+        mode: 0755
 
-     - name: Install customized apache security.conf
-       synchronize:
-         src: "/home/byron/newengagefront/attachments/security.conf"
-         dest: "/etc/apache2/conf.d/security"
+    - name: Install customized apache security.conf
+      synchronize:
+        src: "/home/byron/newengagefront/attachments/security.conf"
+        dest: "/etc/apache2/conf.d/security"
 
-     - name: Install customized apache localized-error-pages.conf
-       synchronize:
-         src: "/home/byron/newengagefront/attachments/localized-error-pages.conf"
-         dest: "/etc/apache2/conf.d/localized-error-pages"
+    - name: Install customized apache localized-error-pages.conf
+      synchronize:
+        src: "/home/byron/newengagefront/attachments/localized-error-pages.conf"
+        dest: "/etc/apache2/conf.d/localized-error-pages"
 
-     - name: Install customized apache other-vhosts-access-log.conf
-       synchronize:
-         src: "/home/byron/newengagefront/attachments/other-vhosts-access-log.conf"
-         dest: "/etc/apache2/conf.d/other-vhosts-access-log"
+    - name: Install customized apache other-vhosts-access-log.conf
+      synchronize:
+        src: "/home/byron/newengagefront/attachments/other-vhosts-access-log.conf"
+        dest: "/etc/apache2/conf.d/other-vhosts-access-log"
 
-     - name: Install customized apache charset.conf
-       synchronize:
-         src: "/home/byron/newengagefront/attachments/charset.conf"
-         dest: "/etc/apache2/conf.d/charset"       
+    - name: Install customized apache charset.conf
+      synchronize:
+        src: "/home/byron/newengagefront/attachments/charset.conf"
+        dest: "/etc/apache2/conf.d/charset"       
