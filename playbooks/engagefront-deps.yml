@@ -27,6 +27,8 @@
         - redis-tools
         - mongodb-clients
         - php-redis
+        - python-xlrd
+        - python-levenshtein
 
     - name: Install customized php ini file
       synchronize:
