@@ -1,4 +1,4 @@
-- name: "Pull down relevant Git repos for Engagefron, create some symlinks and stuff too"
+- name: "Pull down relevant Git repos for Engagefront, create some symlinks and stuff too"
   hosts: newengagefront1
   become: yes
   become_method: sudo
