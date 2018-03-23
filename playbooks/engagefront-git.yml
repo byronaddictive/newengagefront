@@ -16,15 +16,24 @@
     - name: sync proj to destination
       synchronize:
         src: "/tmp/rolloutconsole"
-        dest: "/opt/rolloutconsole"
+        dest: "/opt/"
         recursive: yes
         rsync_opts:
           - "--no-motd"
-          - "--exclude=.git"    
-        
+          - "--exclude=.git" 
 
-        #      - name: Link to rollout console and create /var/sites
-        #        shell: ln -s /opt/rolloutconsole /var/sites/rollout 
-                     
-        #      - name: Copy rollout console config file
-        #      - shell: cp -f /opt/rolloutconsole/init/rollout.conf  /etc/init/rollout.conf
+    - name: Link to rollout console and create /var/sites 
+      file:
+        src: /opt/rolloutconsole
+        dest: /var/sites/rollout
+        owner: root
+        group: root
+        state: link
+
+    - name: Copy rollout console config file
+      copy:
+        src: /opt/rolloutconsole/init/rollout.conf
+        dest: /etc/init/rollout.conf
+        owner: root
+        group: root
+        mode: 0644
