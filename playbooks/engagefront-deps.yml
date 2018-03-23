@@ -51,23 +51,44 @@
     - name: mkdir -p  /mnt/ephemeral/sites/default
       file: 
         path: /mnt/ephemeral/sites/default
+        owner: www-data
+        group: www-data
+        mode: 0755
 
     - name: mkdir -p /mnt/ephemeral/sites/default/html
       file:
-        path: /mnt/ephemeral/sites/default/htm
+        path: /mnt/ephemeral/sites/default/html
+        owner: www-data
+        group: www-data
+        mode: 0755
 
     - name: mkdir -p /mnt/ephemeral/log/apache2
       file: 
         path: /mnt/ephemeral/log/apache2
+        owner: www-data
+        group: www-data
+        mode: 0755
 
     - name: ln -s /mnt/ephemeral/sites/default /var/www
       file:
+        src: /mnt/ephemeral/sites/default
+        dest: /var/www
+        owner: www-data
+        group: www-data
         state: link
 
     - name: ln -s /mnt/ephemeral/sites /var/sites
-      file: 
+      file:
+        src: /mnt/ephemeral/sites
+        dest: /var/sites
+        owner: www-data
+        group: www-data
         state: link     
 
     - name: ln -s /mnt/ephemeral/log/apache2 /var/log/apache2
       file:
+        src: /mnt/ephemeral/log/apache2
+        dest: /var/log/apache2
+        owner: www-data
+        group: www-data
         state: link
